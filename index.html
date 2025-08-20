@@ -158,28 +158,31 @@
             aria-label="Toggle theme"
           >
             <!-- sun/moon -->
-            <svg
-              id="sun"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              
-            >
-              <path
-                fill="currentColor"
-                d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.79l1.8-1.79M1 13h3v-2H1v2m10 10h2v-3h-2v3m7.24-18.16l1.79-1.79l-1.79-1.79l-1.79 1.79l1.79 1.79M20 13h3v-2h-3v2M6.76 19.16l-1.8 1.79l1.42 1.42l1.79-1.79l-1.41-1.42M17.24 19.16l1.79 1.79l1.42-1.42l-1.79-1.79l-1.42 1.42M12 7a5 5 0 100 10a5 5 0 000-10z"
-              />
-            </svg>
-            <svg
-              id="moon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            
-            >
-              <path
-                fill="currentColor"
-                d="M12.74 2a10 10 0 1010.52 13.35A8 8 0 0112.74 2"
-              />
-            </svg>
+           <!-- sun starts hidden (for light mode default) -->
+<svg
+  id="sun"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  class="h-5 w-5 hidden"
+>
+  <path
+    fill="currentColor"
+    d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.79l1.8-1.79M1 13h3v-2H1v2m10 10h2v-3h-2v3m7.24-18.16l1.79-1.79l-1.79-1.79l-1.79 1.79l1.79 1.79M20 13h3v-2h-3v2M6.76 19.16l-1.8 1.79l1.42 1.42l1.79-1.79l-1.41-1.42M17.24 19.16l1.79 1.79l1.42-1.42l-1.79-1.79l-1.42 1.42M12 7a5 5 0 100 10a5 5 0 000-10z"
+  />
+</svg>
+
+<!-- moon starts visible -->
+<svg
+  id="moon"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  class="h-5 w-5"
+>
+  <path
+    fill="currentColor"
+    d="M12.74 2a10 10 0 1010.52 13.35A8 8 0 0112.74 2"
+  />
+</svg>
           </button>
           <button
             id="menuBtn"
