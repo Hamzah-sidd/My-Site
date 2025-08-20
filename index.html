@@ -624,6 +624,41 @@
         alert("Thanks, I'll get back to you soon!");
         ev.target.reset();
       });
+
+ const themeToggle = document.getElementById("themeToggle");
+  const htmlEl = document.documentElement;
+  const sunIcon = document.getElementById("sun");
+  const moonIcon = document.getElementById("moon");
+
+  // Initialize theme from localStorage or system
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    htmlEl.classList.add("dark");
+    sunIcon.classList.remove("hidden");
+    moonIcon.classList.add("hidden");
+  } else {
+    htmlEl.classList.remove("dark");
+    sunIcon.classList.add("hidden");
+    moonIcon.classList.remove("hidden");
+  }
+
+  // Toggle on click
+  themeToggle.addEventListener("click", () => {
+    htmlEl.classList.toggle("dark");
+    if (htmlEl.classList.contains("dark")) {
+      localStorage.theme = "dark";
+      sunIcon.classList.remove("hidden");
+      moonIcon.classList.add("hidden");
+    } else {
+      localStorage.theme = "light";
+      sunIcon.classList.add("hidden");
+      moonIcon.classList.remove("hidden");
+    }
+  });
+
+      
     </script>
   </body>
 </html>
