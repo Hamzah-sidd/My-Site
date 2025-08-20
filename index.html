@@ -522,16 +522,39 @@
     <!-- JS -->
     <script type="module">
       // Theme toggle with localStorage
-      const root = document.documentElement;
-      const themeBtn = document.getElementById('themeToggle');
-      const saved = localStorage.getItem('theme');
-      if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        root.classList.add('dark');
-      }
-      themeBtn?.addEventListener('click', () => {
-        root.classList.toggle('dark');
-        localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
-      });
+       const themeToggle = document.getElementById("themeToggle");
+  const htmlEl = document.documentElement;
+  const sunIcon = document.getElementById("sun");
+  const moonIcon = document.getElementById("moon");
+
+  // Initialize theme from localStorage or system
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    htmlEl.classList.add("dark");
+    sunIcon.classList.remove("hidden");
+    moonIcon.classList.add("hidden");
+  } else {
+    htmlEl.classList.remove("dark");
+    sunIcon.classList.add("hidden");
+    moonIcon.classList.remove("hidden");
+  }
+
+  // Toggle on click
+  themeToggle.addEventListener("click", () => {
+    htmlEl.classList.toggle("dark");
+    if (htmlEl.classList.contains("dark")) {
+      localStorage.theme = "dark";
+      sunIcon.classList.remove("hidden");
+      moonIcon.classList.add("hidden");
+    } else {
+      localStorage.theme = "light";
+      sunIcon.classList.add("hidden");
+      moonIcon.classList.remove("hidden");
+    }
+  });
+
 
       // Mobile menu
       const menuBtn = document.getElementById('menuBtn');
@@ -625,38 +648,6 @@
         ev.target.reset();
       });
 
- const themeToggle = document.getElementById("themeToggle");
-  const htmlEl = document.documentElement;
-  const sunIcon = document.getElementById("sun");
-  const moonIcon = document.getElementById("moon");
-
-  // Initialize theme from localStorage or system
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    htmlEl.classList.add("dark");
-    sunIcon.classList.remove("hidden");
-    moonIcon.classList.add("hidden");
-  } else {
-    htmlEl.classList.remove("dark");
-    sunIcon.classList.add("hidden");
-    moonIcon.classList.remove("hidden");
-  }
-
-  // Toggle on click
-  themeToggle.addEventListener("click", () => {
-    htmlEl.classList.toggle("dark");
-    if (htmlEl.classList.contains("dark")) {
-      localStorage.theme = "dark";
-      sunIcon.classList.remove("hidden");
-      moonIcon.classList.add("hidden");
-    } else {
-      localStorage.theme = "light";
-      sunIcon.classList.add("hidden");
-      moonIcon.classList.remove("hidden");
-    }
-  });
 
       
     </script>
